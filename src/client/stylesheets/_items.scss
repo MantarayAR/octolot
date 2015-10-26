@@ -1,0 +1,7 @@
+.item__list {
+  @extend .collection;
+}
+
+.item__item {
+  @extend .collection-item;
+}
