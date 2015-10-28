@@ -1,5 +1,14 @@
 $pane_height: 75vh;
 
+%pane__inner {
+  min-height: $pane_height;
+  max-height: $pane_height;
+  overflow: auto;
+  padding: 0 0.75rem;
+  position: absolute;
+  width: 100%;
+}
+
 .panes {
   @extend .row;
 
@@ -29,15 +38,10 @@ $pane_height: 75vh;
   position: relative;
 
   .panes__pane-one__inner {
+    @extend %pane__inner;
     @extend .teal.darken-3;
 
     left: 0;
-    min-height: $pane_height;
-    max-height: $pane_height;
-    overflow: auto;
-    padding: 0 0.75rem;
-    position: absolute;
-    width: 100%;
     z-index: 20;
   }
 }
@@ -49,20 +53,18 @@ $pane_height: 75vh;
   position: relative;
 
   .panes__pane-two__inner {
+    @extend %pane__inner;
     @extend .teal.darken-4;
 
-    left: -1000px;
-    min-height: $pane_height;
-    max-height: $pane_height;
-    padding: 0 0.75rem;
-    position: absolute;
-    transition: 1s;
-    width: 100%;
+    right: 100%;
+    opacity: 0;
+    transition: right .5s, opacity .5s;
     z-index: 10;
 
     &.show {
-      left: 0;
-    }  
+      right: 0;
+      opacity: 1;
+    }
   }
 }
 
@@ -70,5 +72,21 @@ $pane_height: 75vh;
   @extend .col;
   @extend .m3;
 
-  @extend .teal.darken-5;
+  position: relative;
+
+  .panes__pane-three__inner {
+    @extend %pane__inner;
+    @extend .teal.lighten-4;
+    @extend .blue-grey-text.text-darken-4;
+
+    right: 100%;
+    opacity: 0;
+    transition: right .5s, opacity .5s;
+    z-index: 5;
+
+    &.show {
+      right: 0;
+      opacity: 1;
+    }
+  }
 }

@@ -17,6 +17,8 @@ AddCollectionComponent = React.createClass({
 
       if (error) {
         // TODO handle error
+        console.log(error);
+
 
         return error.message;
       } else {

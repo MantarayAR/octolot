@@ -2,11 +2,17 @@ ListItemsComponent = React.createClass({
   mixins: [ReactMeteorData],
   getMeteorData() {
     var collectionId = this.props.collectionId;
-    var loaded = Meteor.subscribe("items", collectionId);
+    var loaded = Meteor.subscribe("collectionItems", collectionId);
 
     return {
       isLoading: ! loaded.ready(),
-      items: Items.find({}, { sort: { createdAt: 1 }}).fetch()
+      items: Items.find({
+        collectionId: collectionId
+      }, {
+        sort: {
+          createdAt: 1
+        }
+      }).fetch()
     };
   },
   render() {

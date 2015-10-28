@@ -19,7 +19,7 @@ FlowRouter.route('/collection/:collectionId', {
 FlowRouter.route('/collection/:collectionId/:itemId', {
   action: function(params, queryParams) {
     ReactLayout.render(MainLayout, {
-      content: <HomePage collectionId={params.collectionId} itemid={params.itemId} />
+      content: <HomePage collectionId={params.collectionId} itemId={params.itemId} />
     });
   },
   name: "Collection"

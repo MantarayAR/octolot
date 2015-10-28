@@ -17,6 +17,17 @@ ItemsSchema = new SimpleSchema({
     type: String,
     label: "The id of the collection that owns the item"
   },
+  count: {
+    type: Number,
+    label: "The number of this item the user owns",
+    autoValue: function() {
+      if (this.isSet) {
+        return this.value;
+      } else {
+        return 1;
+      }
+    }
+  },
   createdAt: {
     type: Date,
     autoValue: function() {
@@ -71,7 +82,7 @@ if ( Meteor.isServer ) {
     });
   });
 
-  Meteor.publish('items', function(collectionId) {
+  Meteor.publish('collectionItems', function(collectionId) {
     if (! collectionId) {
       return;
     }
@@ -80,6 +91,18 @@ if ( Meteor.isServer ) {
 
     return Items.find({
       collectionId: collectionId
+    });
+  });
+
+  Meteor.publish('items', function() {
+    var collectionIds = Collections.find({}).fetch().map(function(a) {
+      return a._id;
+    });
+
+    return Items.find({
+      collectionId : {
+        $in: collectionIds
+      }
     });
   });
 }

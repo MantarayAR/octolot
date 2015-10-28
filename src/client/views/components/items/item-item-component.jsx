@@ -16,9 +16,18 @@ ItemItemComponent = React.createClass({
     }, 200);
   },
   render() {
+    var badge = '';
+
+    if (this.props.item.count) {
+      if (this.props.item.count > 1) {
+        badge = <span className="badge">{this.props.item.count}</span>;
+      }
+    }
+
     return (
       <a className="item__item" href='#!' onClick={this.handleClick}>
         {this.props.item.title}
+        {badge}
       </a>
     );
   }

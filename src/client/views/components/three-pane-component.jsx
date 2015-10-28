@@ -4,9 +4,14 @@ ThreePaneComponent = React.createClass({
     var showPaneTwo   = false;
     var showPaneThree = false;
     var _collectionId = this.props.collectionId;
+    var _itemId       = this.props.itemId;
 
     if (_collectionId) {
       showPaneTwo = true;
+    }
+
+    if (_itemId) {
+      showPaneThree = true;
     }
 
     return {
@@ -14,17 +19,34 @@ ThreePaneComponent = React.createClass({
       showPaneThree: showPaneThree,
     };
   },
+  handleAddClick(e) {
+    e.preventDefault();
+
+    $('#collection-name').focus();
+  },
   render() {
-    var paneTwoContent      = "";
-    var paneTwoInnerClasses = "panes__pane-two__inner";
+    var paneTwoContent        = "";
+    var paneTwoInnerClasses   = "panes__pane-two__inner";
+    var paneThreeContent      = "";
+    var paneThreeInnerClasses = "panes__pane-three__inner";
 
     if (this.data.showPaneTwo) {
       paneTwoInnerClasses += " show";
     }
 
+    if (this.data.showPaneThree) {
+      paneThreeInnerClasses += " show";
+    }
+
     if (this.props.collectionId) {
       paneTwoContent = (
         <CardCollectionComponent collectionId={this.props.collectionId} />
+      );
+    }
+
+    if (this.props.itemId) {
+      paneThreeContent = (
+        <CardItemComponent itemId={this.props.itemId} />
       );
     }
 
@@ -42,7 +64,9 @@ ThreePaneComponent = React.createClass({
           </div>
         </div>
         <div className="panes__pane-three">
-          Three
+          <div id="item_card_container" className={paneThreeInnerClasses}>
+            {paneThreeContent}
+          </div>
         </div>
       </div>
     );

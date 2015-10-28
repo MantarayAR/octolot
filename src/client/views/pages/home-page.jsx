@@ -11,7 +11,7 @@ HomePage = React.createClass({
     var content = <LoginComponent />
 
     if ( this.data.isLoggedIn ) {
-      content = <ThreePaneComponent collectionId={this.props.collectionId} />;
+      content = <ThreePaneComponent collectionId={this.props.collectionId} itemId={this.props.itemId} />;
     }
 
     return (
