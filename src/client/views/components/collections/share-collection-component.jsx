@@ -10,7 +10,7 @@ ShareCollectionComponent = React.createClass({
         // TODO handle error
       } else {
         var modal = [
-          '<div id="item_add_modal" class="modal">',
+          '<div id="collection_share_modal" class="modal">',
           '  <div class="modal-content">',
           '    <h4>Share Link</h4>',
           '    <p>',
@@ -32,7 +32,7 @@ ShareCollectionComponent = React.createClass({
   },
   render() {
     return (
-      <a className="waves-effect waves-light btn" onClick={this.handleClick}>Share</a>
+      <a className="waves-effect waves-light btn" onClick={this.handleClick}><i className="material-icons left">share</i> Share</a>
     );
   }
 });

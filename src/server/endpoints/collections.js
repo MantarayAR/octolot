@@ -15,5 +15,13 @@ Meteor.methods({
     var link      = dispatch(new CreatePublicLinkCommand(), publicKey);
 
     return link;
+  },
+  'editCollection': function(collectionId, newTitle) {
+    check(collectionId, String);
+    check(newTitle, String);
+
+    dispatch(new CheckPlayerIsLoggedInCommand());
+
+    dispatch(new UpdateCollectionCommand(), collectionId, newTitle, Meteor.userId());
   }
 });
