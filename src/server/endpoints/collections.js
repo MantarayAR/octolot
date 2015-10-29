@@ -23,5 +23,12 @@ Meteor.methods({
     dispatch(new CheckPlayerIsLoggedInCommand());
 
     dispatch(new UpdateCollectionCommand(), collectionId, newTitle, Meteor.userId());
+  },
+  'deleteCollection': function(collectionId) {
+    check(collectionId, String);
+
+    dispatch(new CheckPlayerIsLoggedInCommand());
+
+    dispatch(new DeleteCollectionCommand(), collectionId, Meteor.userId());
   }
 });

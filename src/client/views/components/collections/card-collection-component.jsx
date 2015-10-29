@@ -24,6 +24,8 @@ CardCollectionComponent = React.createClass({
         <ShareCollectionComponent collectionId={this.props.collectionId} />
         &nbsp;
         <EditCollectionComponent collection={this.data.collection} />
+        &nbsp;
+        <DeleteCollectionComponent collectionId={this.props.collectionId} />
 
         <ListItemsComponent collectionId={this.props.collectionId} />
 
