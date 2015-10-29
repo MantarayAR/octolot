@@ -22,5 +22,14 @@ FlowRouter.route('/collection/:collectionId/:itemId', {
       content: <HomePage collectionId={params.collectionId} itemId={params.itemId} />
     });
   },
-  name: "Collection"
+  name: "Item"
+});
+
+FlowRouter.route('/public/:collectionKey', {
+  action: function(params, queryParams) {
+    ReactLayout.render(MainLayout, {
+      content: <PublicPage collectionKey={params.collectionKey} />
+    });
+  },
+  name: "Public Collection"
 });

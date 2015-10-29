@@ -75,7 +75,7 @@ AddItemComponent = React.createClass({
   },
   render() {
     return (
-      <div class="item__add">
+      <div className="item__add">
         <div className="row">
           <form className="col s12" onSubmit={this.handleSubmit}>
             <div className="input-field col s12">

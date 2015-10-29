@@ -1,14 +1,26 @@
 ItemItemComponent = React.createClass({
   handleClick(e) {
     e.preventDefault();
-    var item         = this.props.item;
-    var itemId       = item._id;
-    var collectionId = item.collectionId;
+    var item, itemId, collectionId, clickHandler, that;
+
+    that         = this;
+    clickHandler = this.props.clickHandler
+
+    if (clickHandler) { 
+    } else {
+      item         = this.props.item;
+      itemId       = item._id;
+      collectionId = item.collectionId;
+    }
 
     $('#item_card_container').removeClass('show');
 
     setTimeout(function() {
-      FlowRouter.go('/collection/' + collectionId + '/' + itemId);
+      if(clickHandler) { 
+        clickHandler(e, that);
+      } else {
+        FlowRouter.go('/collection/' + collectionId + '/' + itemId);  
+      }
 
       setTimeout(function() {
         $('#item_card_container').addClass('show');

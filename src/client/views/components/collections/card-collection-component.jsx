@@ -21,6 +21,7 @@ CardCollectionComponent = React.createClass({
     return (
       <div className="collection__card">
         <h2>{this.data.collection.title}</h2>
+        <ShareCollectionComponent collectionId={this.props.collectionId} />
 
         <ListItemsComponent collectionId={this.props.collectionId} />
       </div>
