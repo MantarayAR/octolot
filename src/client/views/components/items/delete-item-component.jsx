@@ -1,12 +1,12 @@
-DeleteCollectionComponent = React.createClass({
+DeleteItemComponent = React.createClass({
   handleClick(e) {
     e.preventDefault();
-    var collectionId = this.props.collectionId;
+    var itemId = this.props.itemId;
 
     var modal = [
-      '<div id="collection_delete_modal" class="modal">',
+      '<div id="item_delete_modal" class="modal">',
       '  <div class="modal-content">',
-      '    <h4>Delete Collection?</h4>',
+      '    <h4>Delete Item?</h4>',
       '  </div>',
       '  <div class="modal-footer">',
       '    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>',
@@ -21,7 +21,7 @@ DeleteCollectionComponent = React.createClass({
     $modal.openModal();
 
     $modal.find('[data-for=delete]').click(function(e) {
-      Meteor.call("deleteCollection", collectionId, function (error, response) {
+      Meteor.call("deleteItem", itemId, function (error, response) {
         if ( error ) {
           // TODO handle error
         } else {

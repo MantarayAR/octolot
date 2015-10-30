@@ -44,5 +44,12 @@ Meteor.methods({
     dispatch(new CheckPlayerIsLoggedInCommand());
 
     dispatch(new UpdateItemCommand(), itemId, itemTitle, itemDescription, itemCount);
+  },
+  'deleteItem': function(itemId) {
+    check(itemId, String);
+
+    dispatch(new CheckPlayerIsLoggedInCommand());
+
+    dispatch(new DeleteItemCommand(), itemId, Meteor.userId());
   }
 });

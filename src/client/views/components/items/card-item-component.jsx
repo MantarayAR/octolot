@@ -20,6 +20,8 @@ CardItemComponent = React.createClass({
       <div className="item__card">
         <h2>{this.data.item.title} <span className="badge">{this.data.item.count}</span></h2>
         <EditItemComponent item={this.data.item} />
+        &nbsp;
+        <DeleteItemComponent itemId={this.data.item._id} />
 
         <p>
           {this.data.item.description}
