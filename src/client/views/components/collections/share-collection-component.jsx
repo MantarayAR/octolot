@@ -10,7 +10,7 @@ ShareCollectionComponent = React.createClass({
         // TODO handle error
       } else {
         var modal = [
-          '<div id="collection_share_modal" class="modal">',
+          '<div id="collection_share_modal" class="modal modal-fixed-footer">',
           '  <div class="modal-content">',
           '    <h4>Share Link</h4>',
           '    <p>',

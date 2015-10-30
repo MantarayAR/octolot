@@ -32,5 +32,17 @@ Meteor.methods({
     dispatch(new CheckPlayerIsLoggedInCommand());
 
     dispatch(new IncreaseCountOfItemCommand(), itemTitle, collectionId);
+  },
+  editItem: function(itemId, itemTitle, itemDescription, itemCount) {
+    itemCount = parseInt(itemCount, 10);
+
+    check(itemId, String);
+    check(itemTitle, String);
+    check(itemDescription, String);
+    check(itemCount, Number);
+
+    dispatch(new CheckPlayerIsLoggedInCommand());
+
+    dispatch(new UpdateItemCommand(), itemId, itemTitle, itemDescription, itemCount);
   }
 });

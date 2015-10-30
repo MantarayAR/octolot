@@ -13,6 +13,17 @@ ItemsSchema = new SimpleSchema({
     type: String,
     label: "The name of your item"
   },
+  description: {
+    type: String,
+    label: "Short blurb about the item",
+    autoValue: function() {
+      if (this.isSet) {
+        return this.value;
+      } else {
+        return '';
+      }
+    }
+  },
   collectionId: {
     type: String,
     label: "The id of the collection that owns the item"

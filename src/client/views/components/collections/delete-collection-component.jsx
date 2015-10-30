@@ -4,7 +4,7 @@ DeleteCollectionComponent = React.createClass({
     var collectionId = this.props.collectionId;
 
     var modal = [
-      '<div id="collection_delete_modal" class="modal">',
+      '<div id="collection_delete_modal" class="modal modal-fixed-footer">',
       '  <div class="modal-content">',
       '    <h4>Delete Collection?</h4>',
       '  </div>',

@@ -19,6 +19,11 @@ CardItemComponent = React.createClass({
     return (
       <div className="item__card">
         <h2>{this.data.item.title} <span className="badge">{this.data.item.count}</span></h2>
+        <EditItemComponent item={this.data.item} />
+
+        <p>
+          {this.data.item.description}
+        </p>
       </div>
     );
   }

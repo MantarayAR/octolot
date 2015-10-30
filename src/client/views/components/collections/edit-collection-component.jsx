@@ -5,7 +5,7 @@ EditCollectionComponent = React.createClass({
     var currentTitle = this.props.collection.title;
 
     var modal = [
-      '<div id="collection_edit_modal" class="modal">',
+      '<div id="collection_edit_modal" class="modal modal-fixed-footer">',
       '  <div class="modal-content">',
       '    <h4>Edit Collection Name</h4>',
       '    <p>',
