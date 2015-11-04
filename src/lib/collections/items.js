@@ -39,6 +39,17 @@ ItemsSchema = new SimpleSchema({
       }
     }
   },
+  imageUrl: {
+    type: String,
+    label: "A fully qualified url to an image of the item",
+    autoValue: function() {
+      if (this.isSet) {
+        return this.value;
+      } else {
+        return '';
+      }
+    }
+  },
   createdAt: {
     type: Date,
     autoValue: function() {

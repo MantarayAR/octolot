@@ -5,6 +5,7 @@ EditItemComponent = React.createClass({
     var currentTitle       = this.props.item.title;
     var currentDescription = this.props.item.description || '';
     var currentCount       = this.props.item.count;
+    var currentImageUrl    = this.props.item.imageUrl || '';
 
     var modal = [
       '<div id="item_edit_modal" class="modal modal-fixed-footer">',
@@ -16,11 +17,15 @@ EditItemComponent = React.createClass({
       '    </div>',
       '    <div class="input-field col s12">',
       '      <textarea id="description-item" name="item-description" class="materialize-textarea">' + currentDescription + '</textarea>',
-      '      <label for="description-item">Description</label>',
+      '      <label for="description-item" class="active">Description</label>',
       '    </div>',
       '    <div class="input-field col s12">',
-      '      <input id="count-item" name="item-count" type="number" value="' + currentCount + '" min="1">',
-      '      <label for="count-item">Count</label>',
+      '      <input id="item-count" name="item-count" type="number" value="' + currentCount + '" min="1">',
+      '      <label for="item-count" class="active">Count</label>',
+      '    </div>',
+      '    <div class="input-field col s12">',
+      '      <input id="item-image-url" name="item-image-url" type="text" value="' + currentImageUrl + '">',
+      '      <label for="item-image-url" class="active">Image URL</label>',
       '    </div>',
       '  </div>',
       '  <div class="modal-footer">',
@@ -40,8 +45,9 @@ EditItemComponent = React.createClass({
       var newTitle       = $modal.find('input[name=item-name]').val();
       var newDescription = $modal.find('textarea[name=item-description]').val();
       var newCount       = $modal.find('input[name=item-count]').val();
+      var newImageUrl    = $modal.find('input[name=item-image-url]').val();
 
-      Meteor.call("editItem", itemId, newTitle, newDescription, newCount, function (error, response) {
+      Meteor.call("editItem", itemId, newTitle, newDescription, newCount, newImageUrl, function (error, response) {
         if ( error ) {
           // TODO handle error
         } else {

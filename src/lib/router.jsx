@@ -7,6 +7,15 @@ FlowRouter.route('/', {
   name: "Home"
 });
 
+FlowRouter.route('/about', {
+  action: function(params, queryParams) {
+    ReactLayout.render(MainLayout, {
+      content: <AboutPage />
+    });
+  },
+  name: "About"
+});
+
 FlowRouter.route('/collection/:collectionId', {
   action: function(params, queryParams) {
     ReactLayout.render(MainLayout, {

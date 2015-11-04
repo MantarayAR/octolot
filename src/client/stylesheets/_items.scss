@@ -5,3 +5,11 @@
 .item__item {
   @extend .collection-item;
 }
+
+.item__card-image {
+  max-width: 100%;
+
+  img {
+    max-width: 100%;
+  }
+}

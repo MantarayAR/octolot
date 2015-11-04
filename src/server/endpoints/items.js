@@ -33,17 +33,19 @@ Meteor.methods({
 
     dispatch(new IncreaseCountOfItemCommand(), itemTitle, collectionId);
   },
-  editItem: function(itemId, itemTitle, itemDescription, itemCount) {
+  editItem: function(itemId, itemTitle, itemDescription, itemCount, itemImageUrl) {
     itemCount = parseInt(itemCount, 10);
 
     check(itemId, String);
     check(itemTitle, String);
     check(itemDescription, String);
     check(itemCount, Number);
+    check(itemImageUrl, String);
 
     dispatch(new CheckPlayerIsLoggedInCommand());
+    dispatch(new CheckStringIsUrlCommand(), itemImageUrl, true /* allowEmptyString */);
 
-    dispatch(new UpdateItemCommand(), itemId, itemTitle, itemDescription, itemCount);
+    dispatch(new UpdateItemCommand(), itemId, itemTitle, itemDescription, itemCount, itemImageUrl);
   },
   'deleteItem': function(itemId) {
     check(itemId, String);

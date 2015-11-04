@@ -1,5 +1,5 @@
 UpdateItemCommand = function() {
-  var handle = function(id, title, description, count) {
+  var handle = function(id, title, description, count, imageUrl) {
     var item = Items.findOne({
       _id: id
     });
@@ -11,7 +11,8 @@ UpdateItemCommand = function() {
         $set: {
           title: title,
           description: description,
-          count: count
+          count: count,
+          imageUrl: imageUrl
         }
       })
     } else {
