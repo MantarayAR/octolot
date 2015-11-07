@@ -16,6 +16,15 @@ FlowRouter.route('/about', {
   name: "About"
 });
 
+FlowRouter.route('/search', {
+  action: function(params, queryParams) {
+    ReactLayout.render(MainLayout, {
+      content: <SearchPage searchTerms={queryParams.search} />
+    });
+  },
+  name: "Search"
+});
+
 FlowRouter.route('/collection/:collectionId', {
   action: function(params, queryParams) {
     ReactLayout.render(MainLayout, {
