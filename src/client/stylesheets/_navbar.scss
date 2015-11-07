@@ -1,3 +1,9 @@
 nav {
-  @extend .blue-grey.darken-4; 
+  @extend .blue-grey.darken-4;  
+}
+
+.nav__logo {
+  display: inline-block;
+  max-height: 64px;
+  vertical-align: middle;
 }
