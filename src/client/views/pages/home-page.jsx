@@ -1,7 +1,7 @@
 HomePage = React.createClass({
   mixins: [ReactMeteorData],
   getMeteorData() {
-    var isLoggedIn = !! Meteor.userId;
+    var isLoggedIn = !! Meteor.userId();
 
     return {
       isLoggedIn: isLoggedIn
