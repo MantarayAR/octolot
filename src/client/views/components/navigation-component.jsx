@@ -1,4 +1,12 @@
 NavigationComponent = React.createClass({
+  mixins: [ReactMeteorData],
+  getMeteorData() {
+    var isLoggedIn = !! Meteor.userId();
+
+    return {
+      isLoggedIn: isLoggedIn
+    };
+  },
   logout(e) {
     e.preventDefault();
 
@@ -7,6 +15,14 @@ NavigationComponent = React.createClass({
     });
   },
   render() {
+    var items = [(<li><a href="/about">About</a></li>)];
+
+    if (this.data.isLoggedIn) {
+      items.push(<li><a href="/search">Search</a></li>);
+
+      items.push(<li><a href="#!" onClick={this.logout}>Logout</a></li>);
+    }
+
     return(
      <nav>
         <div className="nav-wrapper">
@@ -14,9 +30,7 @@ NavigationComponent = React.createClass({
             <div className="col s12">
               <a href="/" className="brand-logo"><img className="nav__logo" src="/mstile-70x70.png" /> Octolot</a>
               <ul id="nav-mobile" className="right hide-on-med-and-down">
-                <li><a href="/search">Search</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="#!" onClick={this.logout}>Logout</a></li>
+                {items}
               </ul>
             </div>
           </div>
