@@ -3,6 +3,8 @@ Octolot
 
 Organize your stuff and always know what you own – no matter where you are
 
+![Octolot Preview](documentation/images/octolot.png)
+
 # Development
 
 This is a Meteor application. You can run this application using:
