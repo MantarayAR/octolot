@@ -25,5 +25,5 @@ Deploy using:
 
 ```sh
 cd src
-meteor deploy --setings settings.prod.json octolot.meteor.com
+meteor deploy --settings settings.prod.json octolot.meteor.com
 ```

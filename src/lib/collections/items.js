@@ -22,7 +22,8 @@ ItemsSchema = new SimpleSchema({
       } else {
         return '';
       }
-    }
+    },
+    optional: true
   },
   collectionId: {
     type: String,
